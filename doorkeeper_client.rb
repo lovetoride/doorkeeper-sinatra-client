@@ -82,7 +82,7 @@ class DoorkeeperClient < Sinatra::Base
   get '/sign_in' do
     session[:state] = SecureRandom.hex
     scope = params[:scope] || 'read'
-    redirect client.auth_code.authorize_url(redirect_uri: redirect_uri, scope: scope, state: session[:state])
+    redirect client.auth_code.authorize_url(redirect_uri: redirect_uri, scope: scope, state: session[:state], api_endpoint_domain: ENV['API_ENDPOINT_DOMAIN'])
   end
 
   get '/sign_out' do
