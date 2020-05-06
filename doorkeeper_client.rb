@@ -1,3 +1,6 @@
+require 'pry'
+require 'dotenv/load'
+
 # frozen_string_literal: true
 
 require 'sinatra/base'
